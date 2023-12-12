@@ -171,7 +171,11 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+    if(stringOne < stringTwo){
+        return stringOne
+    }else{
+        return stringTwo
+    }
 
 
     // YOUR CODE ABOVE HERE //
@@ -211,11 +215,9 @@ function sortAscending(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-    stringOne.sort((a, b) => b - a)
-    stringTwo.sort((a, b) => b - a)
-    if (result > 0) {
+    if (stringOne > stringTwo ) {
         return 1;
-    } else if (result < 0) {
+    } else if (stringOne < stringTwo) {
         return -1;
     } else {
         return 0;
