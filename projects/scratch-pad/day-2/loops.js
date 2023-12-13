@@ -118,7 +118,7 @@ console.log(getObjectValues())
 // the output is the value pairs
 function printObjectValues(object) {
   // YOUR CODE BELOW HERE //
-  for(let key in objec){
+  for(let key in object){
     console.log(object[key]);
   }
  
@@ -132,13 +132,12 @@ function printObjectValues(object) {
  */
 function getObjectLength(object) {
   // YOUR CODE BELOW HERE //
-  for(let key in object){
-    console.log(Object.keys(object).length)
-  }
-  
-  
-  
+  // try to find a way to put key value pairs from an object into an array so it can be counte
+  // using Object.keys the key turns the key to a value of an array 
+  var objLength = Object.keys(object).length
+  // now I need to get the length of the object
   // YOUR CODE ABOVE HERE //
+  return objLength
 }
 
 /** 
@@ -146,18 +145,17 @@ function getObjectLength(object) {
  * print its values using console.log()?
  */
 function printObjectValuesInReverse(object) {
-  // YOUR CODE BELOW HERE //
-  for(let key in object){
-    let splitObject = object.split("")
-    let reverseObject = splitObject.reverse()
-    let joinObject = reverseObject.join()
+  // YOUR CODE BELOW HERE /
+  // I need to look up how to put object key value pairs into an array to be reversed
+  var objReverse = Object.keys(object).reverse()
+  console.log(objReverse)
   }
-  return joinObject
+   
   
   
   
   // YOUR CODE ABOVE HERE //
-}
+
 
 
 

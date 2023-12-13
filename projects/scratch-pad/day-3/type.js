@@ -12,10 +12,13 @@
  * TIP: In JavaScript, how can we decipher if a value is an Array? Can typeof
  * work?
  */
+// research date object and how to determine if its a ninstance of the date object
+// how to determin is somethikng is a instance of the date object
+// to dertiermin if something is NOT an instance of the date object
 function isArray(value) {
     // YOUR CODE BELOW HERE //
     
-    
+    // look for the method that exists to solve this
     
     
     // YOUR CODE ABOVE HERE //

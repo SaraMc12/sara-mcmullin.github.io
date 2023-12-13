@@ -11,14 +11,28 @@
  * return a Function that tests whether a given value is greater than the 
  * base.
  */
+
+// I: input could be a string or a number that is tested against base
+// O: which string or number is greater than the base
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
+    // create a function that compares base to another value and set a conditional boolean value
+        return function value(val) {
+        if(val > base){
+            return true
+        }else{
+            return false
+        }
+        
+      }
+      
+    }
+
     
     
     
     // YOUR CODE ABOVE HERE //
-}
+
 
 /** 
  * Given an input base to test against, which could be a String or Number, 
@@ -28,7 +42,9 @@ function createGreaterThanFilter(base) {
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
-    
+    return functions(){
+
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -41,8 +57,10 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    
-    
+    // 
+    return function(){
+
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -56,7 +74,9 @@ function createStartsWithFilter(startsWith) {
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
     
-    
+    return function(){
+        
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -69,6 +89,7 @@ function createEndsWithFilter(endsWith) {
  * TIP: You need to loop over the Strings, right? We need to pass each String to 
  * the modify Function, but we need to collect the results into some collection.
  */
+// modify is a callback function with a return of true of false
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
     
@@ -87,6 +108,7 @@ function modifyStrings(strings, modify) {
  * 
  * TIP: You need to loop over the Strings, right? And pass them to the test?
  */
+// test is a callback function with a return of True or False
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
     
