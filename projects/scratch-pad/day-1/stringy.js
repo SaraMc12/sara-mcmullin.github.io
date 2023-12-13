@@ -171,11 +171,11 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-    if(stringOne < stringTwo){
-        return stringOne
-    }else{
-        return stringTwo
-    }
+    if (stringOne.length >= stringTwo.length) {
+        return stringOne;
+      } else {
+        return stringTwo;
+      }
 
 
     // YOUR CODE ABOVE HERE //
