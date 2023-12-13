@@ -17,17 +17,15 @@
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
     // create a function that compares base to another value and set a conditional boolean value
-        return function value(val) {
+    function value(val) {
         if(val > base){
             return true
         }else{
             return false
         }
-        
       }
-      
+      return value(val, base);
     }
-
     
     
     
@@ -43,7 +41,7 @@ function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
     return functions(){
-
+        
     }
     
     
@@ -57,9 +55,9 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    // 
-    return function(){
-
+    
+    return function(val){
+       
     }
     
     
