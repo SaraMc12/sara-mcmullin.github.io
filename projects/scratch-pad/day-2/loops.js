@@ -67,6 +67,10 @@ function getObjectKeys(object) {
   // YOUR CODE ABOVE HERE //
 }
 console.log(getObjectKeys())
+
+
+
+
 /** 
  * Given an input Object, loop over the Object and print its keys 
  * using console.log().
@@ -78,13 +82,13 @@ console.log(getObjectKeys())
 function printObjectKeys(object) {
   // YOUR CODE BELOW HERE //
   for(let key in object){
-   console.log(object[key]);
+   console.log(key);
     
   }
   }
+
   
-  
-  
+
   
   // YOUR CODE ABOVE HERE //
 
@@ -94,14 +98,17 @@ function printObjectKeys(object) {
  */
 function getObjectValues(object) {
   // YOUR CODE BELOW HERE //
+  let valueArr = []
   for(let key in object){
-    console.log(object[key])
+    valueArr.push(object[key]);
+    
   }
-  
-  
-  
+  return valueArr
   // YOUR CODE ABOVE HERE //
 }
+console.log(getObjectValues())
+
+
 
 /** 
  * Given an input Object, loop over the Object and print its values 
@@ -111,8 +118,8 @@ function getObjectValues(object) {
 // the output is the value pairs
 function printObjectValues(object) {
   // YOUR CODE BELOW HERE //
-  for(let i = 0; i < object.length; i++){
-    console.log(object[key])
+  for(let key in objec){
+    console.log(object[key]);
   }
  
   
@@ -125,7 +132,9 @@ function printObjectValues(object) {
  */
 function getObjectLength(object) {
   // YOUR CODE BELOW HERE //
-  
+  for(let key in object){
+    console.log(Object.keys(object).length)
+  }
   
   
   
@@ -138,7 +147,12 @@ function getObjectLength(object) {
  */
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
-  
+  for(let key in object){
+    let splitObject = object.split("")
+    let reverseObject = splitObject.reverse()
+    let joinObject = reverseObject.join()
+  }
+  return joinObject
   
   
   
