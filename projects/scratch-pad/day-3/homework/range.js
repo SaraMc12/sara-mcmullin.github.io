@@ -21,14 +21,26 @@
  *  b. you'll need a loop, which one is best?
  *  c. you'll wanna make use of the push() method of Array.
  */
-function range(start, end) {
-    // YOUR CODE GOES BELOW HERE //
-    
+
+    function range(start, end) {
+        // YOUR CODE GOES BELOW HERE //
+        var rangeArray = [];
+        for (let i = 0; i < start.length; i++) {
+          rangeArray.push(start);
+          return rangeAttay
+          
+        }
+        for (let j = 0; j < end.length -1; j--) {
+          rangeArray.push(end);
+          returnrangeArray;
+        }
+      }
+      
     
     
     
     // YOUR CODE GOES ABOVE HERE //
-}
+
 
 
 

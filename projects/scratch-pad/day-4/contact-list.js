@@ -35,15 +35,21 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
+    var contacts = {}
+        contacts.id = id,
+        contacts.nameFirst= nameFirst,
+        contacts.nameLast= nameLast
+        return contacts
+    }
+// make a factory function
+ 
 
-} 
-
-
+// make factory function 
 function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
+    var contacts = [];
     
     return {
         // we implemented the length api for you //
