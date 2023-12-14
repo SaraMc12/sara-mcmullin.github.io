@@ -17,14 +17,14 @@
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
     // create a function that compares base to another value and set a conditional boolean value
-    function value(val) {
+    return function value(val) {
         if(val > base){
             return true
         }else{
             return false
         }
       }
-      return value(val, base);
+
     }
     
     
@@ -39,30 +39,41 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
-    return functions(){
-        
-    }
+    return function value(val) {
+        if(val < base){
+            return true
+        }else{
+            return false
+        }
+      }
+
+  }
+
     
     
     // YOUR CODE ABOVE HERE //
-}
+
 
 /** 
  * Given a startsWith character, which will be a single character, return a 
  * Function that tests whether a given String starts with the startsWith 
  * character.
  */
-function createStartsWithFilter(startsWith) {
-    // YOUR CODE BELOW HERE //
-    
-    return function(val){
-       
+ function createStartsWithFilter(startsWith) {
+//     // YOUR CODE BELOW HERE //
+    return function(char){
+        var firstChar = char.charAt(0).toLowerCase()
+        if(firstChar === startsWith.toLowerCase()){
+            return true
+        }else{
+            return false
+        }
     }
-    
-    
+      
+ }
+
     // YOUR CODE ABOVE HERE //
-}
+
 
 /** 
  * Given a endsWith character, which will be a single character, return a 
@@ -72,8 +83,13 @@ function createStartsWithFilter(startsWith) {
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
     
-    return function(){
-        
+    return function(char){
+        var firstChar = char.charAt(char.length - 1).toLowerCase()
+        if(firstChar === endsWith.toLowerCase()){
+            return true
+        }else{
+            return false
+        }
     }
     
     

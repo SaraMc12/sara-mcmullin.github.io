@@ -17,7 +17,7 @@
 // to dertiermin if something is NOT an instance of the date object
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    
+    return Array.isArray(value)
     // look for the method that exists to solve this
     
     
@@ -34,7 +34,7 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    
+    return typeof value === Object && !Array.isArray(value);
     
     
     
@@ -77,7 +77,7 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
+    return typeOf("string")
     
     
     
