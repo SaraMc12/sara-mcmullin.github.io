@@ -79,7 +79,12 @@ function makeContactList(id, nameFirst, nameLast) {
           
         
         },removeContact: function(contact){
-            contacts.delete(contact)
+            for(let i = 0; i < contacts.length; i++){
+                if(contact.nameFirst === contacts[i].nameFirst && contact.nameLast === contacts[i].nameLast){
+                 contacts.splice(i, 1 )
+                }
+            }
+            
         
         },printAllContactNames: function(){
             return contact(fullName)
