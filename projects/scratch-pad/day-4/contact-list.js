@@ -51,31 +51,44 @@ function makeContactList(id, nameFirst, nameLast) {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts = {};  
-    // loop through contacts list?
-    for(let i = contacts; i < contacts; i ++){
-        constacts.push(contacts.id = id,
-            contacts.nameFirst= nameFirst,
-            contacts.nameLast= nameLast)
-            
-    }
-    // how to delete a contact
-    delete contacts.id
-    delete contacts.nameFirst
-    delete contacts.nameLast
-
-
-    
+    var contacts = [];  
     return {
         // we implemented the length api for you //
-       
-    }
+        length: function() {
+            return contacts.length;
+        },
+        addContact: function(contact){
+            contacts.push(contact);
+            
+        },
+        findContact: function(fullName){
+            console.log("hello")
+            // Input: takes in a pramater of the first and last name of the contact
+            // Output: the first and last name of the contact combined
+            // loop through list of contacts
+            // if first name matches first name and last name matches last name than equals fullname
+            for(let i = 0; i < contacts.length; i++){
+                console.log(contacts[i].nameFirst)
+                console.log(contacts[i].nameLast)
+                  if(fullName === contacts[i].nameFirst + " "+ contacts[i].nameLast){  
+                    return contacts[i]        
+                  }
+                    
+            }
+            return undefined
+          
+        
+        },removeContact: function(contact){
+            contacts.delete(contact)
+        
+        },printAllContactNames: function(){
+            return contact(fullName)
+        }
+
+    } 
+
 }
 
-
-function makeContactList(){
-
-}
 
 // YOUR CODE GOES ABOVE HERE //
 
