@@ -104,13 +104,22 @@ function createEndsWithFilter(endsWith) {
  * the modify Function, but we need to collect the results into some collection.
  */
 // modify is a callback function with a return of true of false
-function modifyStrings(strings, modify) {
+function modifyStrings(strings, modify){
     // YOUR CODE BELOW HERE //
-    
-    
+    var newArray = [];
+
+  // Loop through the array of strings
+  for (var i = 0; i < strings.length; i++) {
+    // Apply the modify function to each string
+    var modifiedString = modify(strings[i]);
+
+    // Collect the modified string into the new array
+    newArray.push(modifiedString);
     
     
     // YOUR CODE ABOVE HERE //
+}
+return newArray
 }
 
 /** 
@@ -125,10 +134,12 @@ function modifyStrings(strings, modify) {
 // test is a callback function with a return of True or False
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    for (let i = 0; i < strings.length; i++) {
+        if (!test(strings[i])) {
+            return false;
+        }
+    }
+    return true;
     // YOUR CODE ABOVE HERE //
 }
 

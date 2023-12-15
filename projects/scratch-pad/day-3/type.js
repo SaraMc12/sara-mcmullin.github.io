@@ -34,11 +34,14 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    if(typeof value === 'object') {
-        return true
-    }else{
-        return false
-    }
+    // checking to see if object value is an an object
+    // checking to see if value is not an array by using the isArray method
+    // checking to see if object is not an array or a date, using the Object.prototype.toString.call method 
+    if (value !== null && typeof value === 'object' && !Array.isArray(value) && Object.prototype.toString.call(value) === '[object Object]') {
+        return true;
+      } else {
+        return false;
+      }
     
     
     
@@ -53,19 +56,16 @@ function isObject(value) {
  * TIP: Similar to isObject, but we must return true if the value is an Array.
  */
 function isCollection(value) {
-    // YOUR CODE BELOW HERE //
-    if(Array.isArray(value)){
-        return true
-    }else if(value === "object"){
-        return true
-    }else{
-        return false
-    }
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+    // its similar to what I did above but i dont know what acollection is
+    if (value !== null && typeof value === 'object' && !Array.isArray(value)){
+    return true;
+} else {
+  return false;
 }
+    
+}   
+    // YOUR CODE ABOVE HERE //
+
 
 /**
  * Given an input value, return the type of the value as a String
@@ -88,7 +88,16 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    return typeof value === 'String';
+    // checking to see if value is array by using isArray()
+    if (Array.isArray(value)) {
+        return "array";
+      } else if (value instanceof Date) {
+        return "date";
+      } else if (value === null) {
+        return "null";
+      } else {
+        return typeof value;
+      }
     
     
     
