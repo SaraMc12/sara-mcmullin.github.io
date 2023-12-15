@@ -24,16 +24,22 @@
 
     function range(start, end) {
         // YOUR CODE GOES BELOW HERE //
+        // first set up a seperate array to push into
         var rangeArray = [];
-        for (let i = 0; i < start.length; i++) {
-          rangeArray.push(start);
-          return rangeAttay
+        // next set a contitional statment that start is either less than or equal to end
+        if (start <= end) {
+          // Loop from start to end  and push each number into the array
+          for (let i = start; i <= end; i++) {
+              rangeArray.push(i);
+          }
+      } else {
+          // Create a second loop from end to start to push each number to the array
+          for (let i = start; i >= end; i--) {
+              rangeArray.push(i);
+          }
           
-        }
-        for (let j = 0; j < end.length -1; j--) {
-          rangeArray.push(end);
-          returnrangeArray;
-        }
+      }
+      return rangeArray;
       }
       
     
