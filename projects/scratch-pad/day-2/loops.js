@@ -146,9 +146,14 @@ function getObjectLength(object) {
  */
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE /
-  // I need to look up how to put object key value pairs into an array to be reversed
-  var objReverse = Object.keys(object).reverse()
-  console.log(objReverse)
+  // use the reverse() method to reverse object
+  var keys = Object.keys(object).reverse();
+
+  // Loop through the reversed keys and print values
+  keys.forEach(function(key) {
+    var value = object[key];
+    console.log(value);
+  });
   }
    
   

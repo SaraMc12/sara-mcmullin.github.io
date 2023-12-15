@@ -39,6 +39,7 @@ function makeContact(id, nameFirst, nameLast) {
         contacts.id = id,
         contacts.nameFirst= nameFirst,
         contacts.nameLast= nameLast
+        
         return contacts
     }
 // make a factory function
