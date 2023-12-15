@@ -57,10 +57,12 @@ function isObject(value) {
  */
 function isCollection(value) {
     // its similar to what I did above but i dont know what acollection is
-    if (value !== null && typeof value === 'object' && !Array.isArray(value)){
+    if (value !== null && typeof value === 'object' && value instanceof Date === false ){
     return true;
-} else {
-  return false;
+} else if(Array.isArray(value)) {
+  return true
+}else{
+  return false
 }
     
 }   

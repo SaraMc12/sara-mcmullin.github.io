@@ -43,25 +43,39 @@ function makeContact(id, nameFirst, nameLast) {
         return contacts
     }
 // make a factory function
- 
+//  I the input takes in id, nameFirst, nameLast(should it take in the makeContact function?)
+// O: it should add a contact, remove a contact, find a contact and print a contact
 
 // make factory function 
-function makeContactList() {
+function makeContactList(id, nameFirst, nameLast) {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts = [];
+    var contacts = {};  
+    // loop through contacts list?
+    for(let i = contacts; i < contacts; i ++){
+        constacts.push(contacts.id = id,
+            contacts.nameFirst= nameFirst,
+            contacts.nameLast= nameLast)
+            
+    }
+    // how to delete a contact
+    delete contacts.id
+    delete contacts.nameFirst
+    delete contacts.nameLast
+
+
     
     return {
         // we implemented the length api for you //
-        length: function() {
-            return contacts.length;
-        }
+       
     }
 }
 
 
+function makeContactList(){
 
+}
 
 // YOUR CODE GOES ABOVE HERE //
 
