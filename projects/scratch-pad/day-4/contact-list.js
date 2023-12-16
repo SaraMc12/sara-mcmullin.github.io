@@ -87,7 +87,19 @@ function makeContactList(id, nameFirst, nameLast) {
             
         
         },printAllContactNames: function(){
-            return contact(fullName)
+            // set up a seperate variable for the printed contacts
+            let result = '';
+        // use forEach to create a callback function to execute for each element in the array
+      contacts.forEach((contact, index) => {
+        // create variable for combining nameLast and nameFirst into a full name for the contact list
+        const fullName = `${contact.nameFirst} ${contact.nameLast}`;
+        result += fullName;
+        // check entire contact list and print with new line
+        if (index < contacts.length - 1) {
+          result += '\n';
+        }
+      });
+            return result
         }
 
     } 
