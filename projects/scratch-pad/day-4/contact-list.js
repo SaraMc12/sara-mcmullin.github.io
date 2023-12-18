@@ -91,7 +91,7 @@ function makeContactList(id, nameFirst, nameLast) {
             let result = '';
         // use forEach to create a callback function to execute for each element in the array
       contacts.forEach((contact, index) => {
-        // create variable for combining nameLast and nameFirst into a full name for the contact list
+        // create variable for combining nameLast and nameFirst into a full name for the contact list using template literal (something I use to do at work which is why I remember anything about it.)
         const fullName = `${contact.nameFirst} ${contact.nameLast}`;
         result += fullName;
         // check entire contact list and print with new line
