@@ -65,11 +65,9 @@ console.log(animal)
 // Step 6 - A Collection of Animals //////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 let duck = { species: 'duck', name: 'Jerome', noises: ['quack', 'honk', 'sneeze', 'woosh'] }
-animals = []
-animals.push(animal)
-animals.push(animal)
-animals.push(animal)
-animals.push(animal)
+animals = [{ name: "Elephant", species: "Mammal" ,noises: ["Moo", "Honk", "Growl"]},
+{ name: "Snake", species: "Reptile", noises: ["Moo", "Honk", "Growl"] },{name: "Tucan", species: "Bird", noises: ["Moo", "Honk", "Growl"]}]
+animals.push(duck)
 console.log(animals)
 
 
@@ -78,6 +76,17 @@ console.log(animals)
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+var friends = []
+console.log(friends)
+
+function getRandom(animals){
+  var animalSelector = Math.random() * animals.length
+  // var animalPicker = animals.push(animalSelector)
+  return animalSelector
+}
+getRandom(animals)
+console.log(friends)
+animals["friends"] = friends
 
 
 /**
