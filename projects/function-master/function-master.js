@@ -64,29 +64,46 @@ function arrayOrObject(collection) {
 
 function capitalizeWord(string) {
     let output = []
-    
-        var upperCase = string[0].toUpperCase()
-        output.push(string[i])
-    
-    return output.join("")
+
+        var upperCase = string[0].toUpperCase()+ string.slice(1)
+        output.push( upperCase)
+        var joinString = output.join(string.length)
+
+    return joinString
 }
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 6 - Capitalize All Words /////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//  Should take a string of words and return a string with all the words capitalized
+// input is a string
+// output is a string but capitalized
 function capitalizeAllWords(string) {
-    
-}
+    let char = string.split(" ");
+    for (let i = 0; i < char.length; i++) {
+      char[i] = char[i][0].toUpperCase() + char[i].slice(1);
+    }
+    let joinString = char.join(" ");
+    return joinString;
+  }
+  
+  console.log(capitalizeAllWords("hello world"));
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+// Should take an object with a name property and return 'Welcome <Name>!'
+// input is an object with a name property
+// output is a welcome message with the name property
 function welcomeMessage(object) {
-
-}
-
+    
+    let userName = object;
+    let message = "Welcome " + userName + "!";
+    return message;
+  }
+  console.log(welcomeMessage("Charlie"))
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
