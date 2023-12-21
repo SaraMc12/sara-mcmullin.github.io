@@ -80,13 +80,14 @@ var friends = []
 console.log(friends)
 
 function getRandom(animals){
-  var animalSelector = Math.random() * animals.length
-  // var animalPicker = animals.push(animalSelector)
+  var animalSelector = Math.floor(Math.random() * animals.length);
   return animalSelector
 }
-getRandom(animals)
+var randomIndex = getRandom(animals)
+friends.push(animals[randomIndex].name);
+animals[0]["friends"] = friends;
 console.log(friends)
-animals["friends"] = friends
+
 
 
 /**
