@@ -98,59 +98,113 @@ function capitalizeAllWords(string) {
 // input is an object with a name property
 // output is a welcome message with the name property
 function welcomeMessage(object) {
-    
-    let userName = object;
-    let message = "Welcome " + userName + "!";
+    let objname = object.name
+    let char = objname.split(" ");
+    console.log(char)
+       for (let i = 0; i < char.length; i++) {
+        char[i] = char[i][0].toUpperCase() + char[i].slice(1);
+     }
+      let capName = char.join("");
+    let message = "Welcome " + capName + "!";
     return message;
-  }
-  console.log(welcomeMessage("Charlie"))
+    }
+//   console.log(welcomeMessage("sam"));
+  
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+// Should take an object with a name an a species and return '<Name> is a <Species>'
 function profileInfo(object) {
+let objName = object.name
+let objSpecies = object.species
 
-}
-
+    let char = objName.split(" ");
+   
+      char[0] = char[0][0].toUpperCase() + char[0].slice(1);
+    
+    let char2 = objSpecies.split(" ");
+   
+      char2[0] = char2[0][0].toUpperCase() + char2[0].slice(1);
+    
+    let capName = char.join("");
+    let capName2 = char2.join("");
+    return (message = capName + " " + "is a" + " " + capName2);
+  }
+//   console.log(profileInfo("craig", "mammal"));
 //////////////////////////////////////////////////////////////////////
 // Function 9 - Maybe Noises /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+// Should take an object, if this object has a noises array return 
+// them as a string separated by a space, if there are no noises return 'there are no noises'
+// input = {noises:["bark", "woof", "squeak","growl"]} an object with an array for a value and a key of noises
+// output = "bark woof squeak growl" a string
 function maybeNoises(object) {
-
+let result = ""
+let noises = object.noises
+if(!object.noises){
+ result = "there are no noises"
 }
 
+else if(noises.length > 0){
+     result = noises.join(" ");
+ }else {
+    result = "there are no noises"  
+ }
+return result
+}
+console.log(maybeNoises({noises:[]}))
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+// Should take a string of words and a word and return true if <word> is in <string of words>, 
+// otherwise return false."
 function hasWord(string, word) {
-
+    var data = string.split(' ');
+    if(!data.includes(word)){
+        return false
+    }else if(data.includes(word))
+    return true
 }
-
+// console.log(hasWord("hello world", "world"))
 //////////////////////////////////////////////////////////////////////
 // Function 11 - Add Friend //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+// Should take a name and an object and add the name to the object's friends array then return the object"
+//  input = ("lester", {friends:[]}), a name and a freinds property
+// output = ("jimmy", {friends:["bobby","jones"]}), {friends:["bobby", "jones", "jimmy"]} should add mew name in friends property
 function addFriend (name, object) {
-
+    if(object.hasOwnProperty("friends")){
+         object.friends.push(name);
+    }else{
+        object.friends = [name];
+    }
+    return object
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//  Should take a name and an object and return true if <name> is a friend of <object> and false otherwise"
 function isFriend(name, object) {
-
+    return object.hasOwnProperty("friends") && object.friends.includes(name);
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+// Should take a name and a list of people, and return a list of all the names that <name> is not friends with"
 function nonFriends(name, array) {
-
-}
+   const nonFriendsList = [];
+    for (let i = 0; i < array.length; i++) {
+        const user = array[i];
+        if (user.name === name) {
+        }else if (!user.friends || !user.friends.includes(name)) {
+            nonFriendsList.push(user.name);
+        }
+        }
+        return nonFriendsList;
+    }
+    
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////

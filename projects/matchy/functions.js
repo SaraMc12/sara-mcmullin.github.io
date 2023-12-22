@@ -63,13 +63,7 @@ function remove(animals, name) {
     
 }
 
-function add(animals, animal){
-    for (let animal in animals){
-        if (!animal.name || animal.name.length === 0 && !animal.species || animal.species.length === 0){
-            animals.push(animal)
-        }
-    }
-}
+
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -80,8 +74,17 @@ function add(animals, animal){
 // - Has a **unique** name, meaning no other animals have that name.
 // - Adds this new Object to the `animals` Array, **only** if all the other conditions pass.
 // - Make sure it works.
-
-
+function add(animals, animal){
+    for(let i = 0; i < animals.length; i++){
+        if (!animal.name || animal.name.length > 0 && animal.species && animal.species.length > 0){
+            originalName = true    
+    }else{
+        false
+    }
+        
+    }
+}
+console.log(add(["lion", "dog"], "goose"))
 /**
  * 
  * 
