@@ -75,17 +75,21 @@ function remove(animals, name) {
 // - Adds this new Object to the `animals` Array, **only** if all the other conditions pass.
 // - Make sure it works.
 function add(animals, animal){
-    uniqeName = ""
+    let matchedAnimal = []
     for(let i = 0; i < animals.length; i++){
-        if (animal.name.length > 0 && animal.species.length > 0){
-            continue   
-    }else if(animal.name !== animal.name.length){
-        uniqueName.push(animal.name)
+        if(animals[i].name === animal.name){
+            matchedAnimal.push(animals[i].name)
+        }
     }
-        animals.push(uniqueName)
+        if(matchedAnimal.length === 0){
+            if (animal.name.length > 0 && animal.species.length > 0){
+                animals.push(animal)
+            }      
+        }     
+        
     }
-}
-console.log(add(["lion", "dog"], "goose"))
+
+// console.log(add(["lion", "dog"], "goose"))
 /**
  * 
  * 

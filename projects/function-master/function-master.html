@@ -141,8 +141,8 @@
       assert.deepEqual(data, {a: "one", b: "two", "hokey": false});
     });
 
-    /* global dedup */"dedup() : Should take an array and return an array with al
-    QUnit.test( l the duplicates removed", function( assert ) {
+    /* global dedup */
+    QUnit.test( "l the duplicates removed", function( assert ) {
       var arrayOne = [1,2,2,2,3,4,5,5,5,5,"a","b","b","b","c"];
       var arrayTwo = ["hello", "hello", "hello", "hello", "hello", "world", "hello", "world", "world", "world"];
       assert.deepEqual(dedup(arrayOne), [1,2,3,4,5,"a","b","c"]);
