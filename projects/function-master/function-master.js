@@ -209,9 +209,20 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+// Should take an object, a key and a value. Should update the property <key> on <object> with new <value>.
+// input is an object with key value pairs
+// output should be a new key and new value on the object
+//  If <key> does not exist on <object> create it."
 function updateObject(object, key, value) {
-
+    
+ for(key in object){
+    if (object.hasOwnProperty(key)){
+        object[key] = value
+    }else if(!object[key]){
+         object[key] = value;
+    }
+    return object
+}
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -225,9 +236,16 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 // Function 16 - Dedup ///////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+// "dedup() : Should take an array and return an array with all the duplicates removed"
 function dedup(array) {
-
+let duplicate = []
+for (value in iarray) {
+for (value2 in array) {
+    if (value === value2) {
+    continue;
+}
+}
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
