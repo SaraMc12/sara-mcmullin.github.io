@@ -214,23 +214,29 @@ function nonFriends(name, array) {
 // output should be a new key and new value on the object
 //  If <key> does not exist on <object> create it."
 function updateObject(object, key, value) {
-    
- for(key in object){
-    if (object.hasOwnProperty(key)){
-        object[key] = value
-    }else if(!object[key]){
-         object[key] = value;
+    if (object.hasOwnProperty(key)) {
+        object[key] = value;
+    } else {
+        object[key] = value;
     }
-    return object
+return object;
 }
-}
+
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+// "removeProperties() : Should take an object and an array of strings. Should remove any properties on <object> that are listed in <array>",
 function removeProperties(object, array) {
-
+    for (let i = 0; i < array.length; i++) {
+        // check to see if there is an existing object on the array
+        if (object.hasOwnProperty(array[i])) {
+            // remove
+            delete object[array[i]];
+        }
+    }
+    
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -238,15 +244,25 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 // "dedup() : Should take an array and return an array with all the duplicates removed"
 function dedup(array) {
-let duplicate = []
-for (value in iarray) {
-for (value2 in array) {
-    if (value === value2) {
-    continue;
-}
-}
+    let dupe = [];
+
+    for (let i = 0; i < array.length; i++) {
+        let isDuplicate = false;
+
+        for (let j = 0; j < dupe.length; j++) {
+            if (array[i] === dupe[j]) {
+                isDuplicate = true;
+            }
+        }
+
+        if (!isDuplicate) {
+            dupe.push(array[i]);
+        }
     }
+
+    return dupe;
 }
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
