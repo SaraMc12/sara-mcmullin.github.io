@@ -4,10 +4,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 function triangles(num) {
-  for(let hash = "#"; hash.length < num; hash += "#"){
-    console.log(hash)
+  for (let hash = "#"; hash.length <= num; hash += "#") {
+    console.log(hash);
   }
-  
 }
 ////////////////////////////////////////////////////////////////////////////////
 // fizzBuzz ////////////////////////////////////////////////////////////////////
@@ -15,13 +14,13 @@ function triangles(num) {
 
 function fizzBuzz(number) {
   if (number % 3 === 0 && number % 5 === 0) {
-    return "fizzbuzz"
+    return "fizzbuzz";
   } else if (number % 3 === 0) {
-    return "fizz"
+    return "fizz";
   } else if (number % 5 === 0) {
-    return "buzz"
+    return "buzz";
   } else {
-    console.log(number)
+    return number;
   }
 }
 
@@ -38,7 +37,7 @@ function drawChessboard(n) {
     for (let j = 0; j < boardSize; j++) {
       if ((i + j) % 2 === 0) {
         board += "#";
-      } else if((i + j) % 2 === 1) {
+      } else {
         board += " ";
       }
     }
@@ -46,7 +45,6 @@ function drawChessboard(n) {
   }
   console.log(board);
 }
-
 drawChessboard(3)
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
