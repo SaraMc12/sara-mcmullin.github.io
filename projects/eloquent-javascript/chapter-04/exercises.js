@@ -94,24 +94,69 @@ function listToArray(list) {
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function prepend() {
-
+function prepend(element, list) {
+  return { value: element, rest: list };
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
-
+function nth(list, index) {
+  if (!list) {
+    return undefined;
+  }else if(index === 0){
+  return list.value
+}else{
+  return nth(list.rest, index - 1);
+}
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
+function deepEqual(a, b) {
+  const stack = [{ a, b }];
 
+  while (stack.length > 0) {
+    const { a, b } = stack.pop();
+
+    if (a === b) {
+      continue;
+    }
+
+    if (typeof a !== 'object' || a === null || typeof b !== 'object' || b === null) {
+      return false;
+    }
+
+    if (Array.isArray(a) && Array.isArray(b)) {
+      if (a.length !== b.length) {
+        return false;
+      }
+
+      for (let i = 0; i < a.length; i++) {
+        stack.push({ a: a[i], b: b[i] });
+      }
+    } else {
+      const keysA = Object.keys(a);
+      const keysB = Object.keys(b);
+
+      if (keysA.length !== keysB.length) {
+        return false;
+      }
+
+      for (let key of keysA) {
+        if (!keysB.includes(key)) {
+          return false;
+        }
+
+        stack.push({ a: a[key], b: b[key] });
+      }
+    }
+  }
+
+  return true;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
