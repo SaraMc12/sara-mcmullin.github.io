@@ -49,8 +49,7 @@ return true
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection(text) {
-function charDirection(uniCode){
+function dominantDirection(text, uniCode) {
   if (uniCode >= 0x0600 && uniCode <= 0x06FF) {
     return "rtl"; // This is the arabic unicode range
   } else if ((uniCode >= 0x0041 && uniCode <= 0x007A) || (uniCode >= 0x00C0 && uniCode <= 0x017F)) {
@@ -59,7 +58,7 @@ function charDirection(uniCode){
     return "unknown";
   }
 }
-}
+
 console.log(dominantDirection(test))
 
 // /////////////////////////////////////////////////////////////////////////////
