@@ -50,14 +50,17 @@ return true
 // /////////////////////////////////////////////////////////////////////////////
 
 function dominantDirection(text, uniCode) {
-  if (uniCode >= 0x0600 && uniCode <= 0x06FF) {
-    return "rtl"; // This is the arabic unicode range
-  } else if ((uniCode >= 0x0041 && uniCode <= 0x007A) || (uniCode >= 0x00C0 && uniCode <= 0x017F)) {
-    return "ltr"; // This is the Latin unicode range
-  } else {
-    return "unknown";
-  }
-}
+      if ((code >= 0x0600 && code <= 0x06FF) || (code >= 0x0750 && code <= 0x077F) || (code >= 0xFB50 && code <= 0xFDFF) || (code >= 0xFE70 && code <= 0xFEFF)) {
+        return "rtl"; // Right-to-left script range
+      } else if ((code >= 0x0041 && code <= 0x007A) || (code >= 0x00C0 && code <= 0x017F) || (code >= 0x2000 && code <= 0x2CFF)) {
+        return "ltr"; // Left-to-right script range
+      } else if ((code >= 0x2800 && code <= 0x28FF)) {
+        return "ttb"; // Top-to-bottom script range
+      } else {
+        return "unknown";
+      }
+    };
+
 
 console.log(dominantDirection(test))
 
