@@ -17,7 +17,18 @@ function flatten(arr) {
 // loop ////////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function loop() {
+function loop(test, value, update, body) {
+  value = []
+  for(let test = 0; test < value; i++){
+    if (!test(value[i])) {
+      return false;
+    }for(let j = 0; j < body; j++){
+      if( body === value){
+        value.push(update(value))
+      }
+    } 
+    return value
+   }
 
 }
 
@@ -25,17 +36,31 @@ function loop() {
 // every ///////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function every() {
-
+function every(arr, test) {
+for(let i = 0; i < arr.length; i++){
+  if(!test(arr[i])){
+    return false
+  }
+}
+return true
 }
 
 // /////////////////////////////////////////////////////////////////////////////
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection() {
-
+function dominantDirection(text) {
+function charDirection(uniCode){
+  if (uniCode >= 0x0600 && uniCode <= 0x06FF) {
+    return "rtl"; // This is the arabic unicode range
+  } else if ((uniCode >= 0x0041 && uniCode <= 0x007A) || (uniCode >= 0x00C0 && uniCode <= 0x017F)) {
+    return "ltr"; // This is the Latin unicode range
+  } else {
+    return "unknown";
+  }
 }
+}
+console.log(dominantDirection(test))
 
 // /////////////////////////////////////////////////////////////////////////////
 //  //////////////////////////////////////////////////////
