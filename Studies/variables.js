@@ -42,4 +42,26 @@
  }
 
 //3. hoisting(give code example)
+// Variable hoisting is a behavior where variable declarations are moved to the top of their 
+//  scope during the compilation phase.
+//  This means that you can use a variable before it's declared in your code, 
 // 
+// **The key points about variable hoisting:
+// /
+// Variable declarations (using var, let, or const) are hoisted to the top of their containing scope
+   console.log(a); // undefined (variable is declared but not initialized)
+    var a = 5;
+
+// Hoisting is applied separately for each scope (function or global scope). 
+// Variables declared inside a function are hoisted to the top of that function's scope.
+function example() {
+   console.log(b); // undefined (variable is declared but not initialized)
+   var b = 10;
+ }
+
+// Variables declared with let and const are hoisted, 
+// but they are not initialized with undefined as in the case of var.
+//  This is known as the "temporal dead zone."
+// Attempting to access a variable declared with let or const before its declaration results in a ReferenceError.
+console.log(c); // ReferenceError: Cannot access 'c' before initialization
+let c = 15;
