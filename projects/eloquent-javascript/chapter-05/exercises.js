@@ -17,19 +17,14 @@ function flatten(arr) {
 // loop ////////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function loop(test, value, update, body) {
-  value = []
-  for(let test = 0; test < value; i++){
-    if (!test(value[i])) {
-      return false;
-    }for(let j = 0; j < body; j++){
-      if( body === value){
-        value.push(update(value))
-      }
-    } 
-    return value
-   }
-
+function loop(value, test, update, body){
+  // while testing the value
+  while(test(value)){
+    // iterate over body and executed on each iteration
+    body(value)
+    // update function that creates a new value for the next iteration
+    value = update(value)
+  }
 }
 
 // /////////////////////////////////////////////////////////////////////////////
