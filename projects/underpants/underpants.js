@@ -17,7 +17,8 @@ var _ = {};
 * Implement each function below its instructions
 */
 
-_.identity =function(){
+_.identity =function(value){
+   
     return value
 
 }
@@ -33,14 +34,17 @@ _.identity =function(){
 */
 
 
-_.typeOf = function(){
-    if(value === undefiend){
-        return undefined
+_.typeOf = function(value, array){
+    if(value === undefined){
+        return "undefined"
     }
-    if(array.isArray()){
-        return array
+    if(value === null){
+        return "null"
     }
-    return value.toString()
+    if(Array.isArray(value)){
+        return "array"
+    }
+    return value === "object" && value !== null ? "object" : typeof value;
 }
 
 /** _.typeOf
@@ -63,6 +67,25 @@ _.typeOf = function(){
 * _.typeOf([1,2,3]) -> "array"
 */
 
+_.first = function(array, number) {
+    if (!Array.isArray(array)) {
+        return [];
+    }
+    
+    if (isNaN(number) || number === undefined) {
+        return array[0];
+    }
+
+    if (number <= 0) {
+        return [];
+    }
+
+    if (number >= array.length) {
+        return array;
+    }
+
+    return array.slice(0, number);
+};
 
 /** _.first
 * Arguments:
@@ -82,6 +105,26 @@ _.typeOf = function(){
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 
+
+_.last = function(array, number) {
+    if (!Array.isArray(array)) {
+        return [];
+    }
+
+    if (isNaN(number) || number === undefined) {
+        return array[array.length - 1];
+    }
+
+    if (number <= 0) {
+        return [];
+    }
+
+    if (number >= array.length) {
+        return array;
+    }
+
+    return array.slice(-number);
+};
 
 /** _.last
 * Arguments:
