@@ -5,6 +5,8 @@
 
 // const { result } = require("lodash");
 
+// const { result } = require("lodash");
+
 // we are creating a functional library
 // version of the underbar or underscore library
 // this is practice for higher order functions
@@ -244,7 +246,17 @@ _.unique = function(array) {
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
+_.filter = function(array, func){
+    let newArr = []
 
+    _.each(array, function(element, index, array){
+        if(func(element, index, array)){
+            newArr.push(element)
+        }
+        
+    })
+    return newArr
+}
 /** _.filter
 * Arguments:
 *   1) An array
@@ -262,6 +274,18 @@ _.unique = function(array) {
 */
 
 
+
+_.reject = function(array, func) {
+    let newArr = [];
+  
+    _.each(array, function(element, index, array) {
+      if (!func(element, index, array)) {
+        newArr.push(element);
+      }
+    });
+  
+    return newArr;
+  };
 /** _.reject
 * Arguments:
 *   1) An array
@@ -275,7 +299,20 @@ _.unique = function(array) {
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
 
-
+_.partition = function(array, func) {
+    let truthyArray = [];
+    let falsyArray = [];
+  
+    _.each(array, function(element, key, array) {
+      if (func(element, key, array)) {
+        truthyArray.push(element);
+      } else {
+        falsyArray.push(element);
+      }
+    });
+  
+    return [truthyArray, falsyArray];
+  };
 /** _.partition
 * Arguments:
 *   1) An array
