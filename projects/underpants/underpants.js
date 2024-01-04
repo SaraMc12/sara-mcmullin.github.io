@@ -3,6 +3,8 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
+// const { result } = require("lodash");
+
 // we are creating a functional library
 // version of the underbar or underscore library
 // this is practice for higher order functions
@@ -144,6 +146,15 @@ _.last = function(array, number) {
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
+_.indexOf = function(array, value){
+for(let i = 0; i < array.length; i++){
+    if(array[i] === value){
+        return i
+    }
+        
+    }
+    return -1
+}
 
 /** _.indexOf
 * Arguments:
@@ -161,7 +172,14 @@ _.last = function(array, number) {
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
-
+_.contains = function(array, value) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === value) {
+            return true;
+        }
+    }
+    return false; // Return false if the value is not found in the array
+}
 /** _.contains
 * Arguments:
 *   1) An array
@@ -177,6 +195,18 @@ _.last = function(array, number) {
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 
+_.each = function(collection, func) {
+    if(Array.isArray(collection)){
+        for(let i = 0; i < collection.length; i++){
+            func(collection[i], i, collection)
+        }
+    }else if(typeof collection === "object" && collection !==null){
+        for(const key in collection){
+            func(collection[key], key, collection)
+        }
+    }
+
+}
 
 /** _.each
 * Arguments:
@@ -195,7 +225,16 @@ _.last = function(array, number) {
 */
 
 
-/** _.unique
+_.unique = function(array) {
+    let result = [];
+    for (let i = 0; i < array.length; i++) {
+        if (_.indexOf(result, array[i]) === -1) {
+            result.push(array[i]);
+        }
+    }
+    return result;
+}
+    /** _.unique
 * Arguments:
 *   1) An array
 * Objectives:

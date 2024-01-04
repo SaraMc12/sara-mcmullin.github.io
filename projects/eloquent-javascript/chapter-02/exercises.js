@@ -32,21 +32,21 @@ function fizzBuzz(start, end) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function drawChessboard(n) {
-  let boardSize = n;
+  let boardSize =n ;
   let board = "";
   for (let i = 0; i < boardSize; i++) {
     for (let j = 0; j < boardSize; j++) {
       if ((i + j) % 2 === 0) {
-        board += "#";
-      } else {
         board += " ";
+      } else {
+        board +=  "#";
       }
     }
     board += "\n";
   }
   console.log(board);
 }
-drawChessboard(3)
+//  drawChessboard(10)
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
