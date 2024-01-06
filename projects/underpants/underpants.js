@@ -332,28 +332,30 @@ _.partition = function(array, func) {
 }
 */
 
+
 // func takes in one value in the collection
-// const output = []
-// _.map = function(collection, func){
-//     if(array.isArray(collection)){
-//         for(let i = 0; 1 < collection.length; i ++ ){
-// // invoke callback and store to variable
-// let result = func(collection[i], i, collection)
-// output.push(result)
-//         }
-//      }else{ 
-//         for(let key in collection){
-//             let result = func( collection[key], key, collection)
-//             output.push(result)
-//         }  
-        
-//     }
-//     // set some kind of conditional to check if the collection is an array array.isArray()
-//     // if array loop through index
-//     // if an object do a for key in obj loop thingie
-//     // return whatever the collection value is
-//     return output
-// }
+_.map = function(collection, func) {
+    const output = [];
+    // Check if the collection is an array
+    if (Array.isArray(collection)) {
+        for (let i = 0; i < collection.length; i++) {
+            // Invoke the callback function and store the result
+            let result = func(collection[i], i, collection);
+            // Push the result to the output array
+            output.push(result);
+        }
+    } else if (typeof collection === 'object') {
+        // If the collection is an object, iterate through its keys
+        for (let key in collection) {
+            // Invoke the callback function and store the result
+            let result = func(collection[key], key, collection);
+            // Push the result to the output array
+            output.push(result);
+        }
+    }
+    // Return the final output array
+    return output;
+};
 /** _.map
 * Arguments:
 *   1) A collection
@@ -370,7 +372,16 @@ _.partition = function(array, func) {
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+_.pluck = function(array, prop){
+    let newArray = []
 
+    _.map(array, function(obj){
+        if(obj.hasOwnProperty(prop)){
+            newArray.push(obj[prop])      
+        }
+    })
+    return newArray
+}
 /** _.pluck
 * Arguments:
 *   1) An array of objects
@@ -382,52 +393,43 @@ _.partition = function(array, func) {
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
-// _.every = function(collection, func){
-//  if(func === undefined){
-//     if(array.isArray(collection)){
-//  for(let i = 0; i < collection.length; i++){
-//     if(!collection[i])
-//     return false
-//  }
-//     }
-//  }else{
-//         for(key in collection){
-//             if(!collection[key]){
-//                 return false
-//             }
-//         }
-   
-//     }else{(array.isArray(collection)){
-//             for(let i = 0; i < collection.length; i++){
-//                 if(collection[i] === false)
-//                 return false
-//             }else  {
-//                 for(key in collection){
-//                     if(collection[key] === false)
-//                    return false
-            
-//                 }
-//             }
-//         }
-
-//     }
-// return true
-// }
-//     for(let i = 0; i < collection.length; i++){
-// // if its not than check to see if its an object
-//     }if(key in object){
-// // for in loop
-//     }
-//     // if key === obj
-//     // return true
-//  }
-// //  if not 
-// // return false
-// // if key !== obj even once, not sure how to write that in code{
-    // return false
-// } if (!func){
-    // return false
-// }
+_.every = function (collection, func) {
+    if (func === undefined) {
+      if (Array.isArray(collection)) {
+        for (let i = 0; i < collection.length; i++) {
+          if (!collection[i]) {
+            return false;
+          }
+        }
+      } else if (typeof collection === 'object') {
+        for (const key in collection) {
+          if (!collection[key]) {
+            return false;
+          }
+        }
+      } else {
+        return false; // If collection is not an array or object
+      }
+    } else {
+      if (Array.isArray(collection)) {
+        for (let i = 0; i < collection.length; i++) {
+          if (!func(collection[i], i, collection)) {
+            return false;
+          }
+        }
+      } else if (typeof collection === 'object') {
+        for (const key in collection) {
+          if (!func(collection[key], key, collection)) {
+            return false;
+          }
+        }
+      } else {
+        return false; // If collection is not an array or object
+      }
+    }
+  
+    return true;
+  };
 
 /** _.every
 * Arguments:
@@ -492,6 +494,10 @@ _.partition = function(array, func) {
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
+
+_.extend = function(targer, ...object){
+// some stuff
+}
 
 /** _.extend
 * Arguments:
