@@ -3,7 +3,7 @@
 'use strict';
 
 var customers = require('./data/customers.json');
-var _ = require(/* Replace this with the name of your lodown! */);
+var _ = require("underbar");
 
 /**
  * 1. Import your lodown module using the require() method,
@@ -16,22 +16,52 @@ var _ = require(/* Replace this with the name of your lodown! */);
  *
  * 4. To test your work, run the following command in your terminal:
  *
- *    npm start --prefix ./<YOUR_GITHUB_FOLDER/projects/let-s-get-functional
+ *    npm start --prefix ./sara-mcmullin.github.io/projects/let-s-get-functional
  *
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
 
 var maleCount = function(array) {
-
+let males = _.filter(array, (customer)=> customer.gender ==="male")
+return males.length
 };
 
-var femaleCount;
+var femaleCount = function(array) {
+    return customers_.reduce((femaleCustomers, customer) => {
+      if (customer.gender === 'female') {
+        femaleCount.push(customer);
+      }
+      return femaleCustomers;
+    }, []);
+  }
+  
+  
+var oldestCustomer = function(customers) {
+    let oldest = customers_.reduce((prev, curr) => {
+        return (prev.age > curr.age) ? prev : curr;
+      });
+    
+      return oldest.name;
+    }
+  
 
-var oldestCustomer;
+var youngestCustomer = function(customers){
+    let youngest = customers_.reduce((prev, curr) => {
+        return (prev.age < curr.age) ? prev : curr;
+      });
+  
+      return youngest.name;
+    }
 
-var youngestCustomer;
-
-var averageBalance;
+    var averageBalance = function(customers) {
+        const balances = customers.map(customer => {
+          return parseFloat(customer.balance.replace('$', '').replace(',', ''));
+        });
+        const sum = balances.reduce((acc, curr) => acc + curr, 0)
+        const roundedSum = Math.floor(sum)
+      
+        return roundedSum
+      }
 
 var firstLetterCount;
 

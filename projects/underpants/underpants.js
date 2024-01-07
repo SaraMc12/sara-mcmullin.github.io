@@ -453,6 +453,35 @@ _.every = function (collection, func) {
 */
 
 
+
+_.some = function(collection, func) {
+    let result = false;
+
+    if (Array.isArray(collection) && typeof func === 'function') {
+        for (let i = 0; i < collection.length; i++) {
+            let elementResult = func(collection[i], i, collection);
+            if (elementResult === true) {
+                result = true;
+            }
+        }
+    } else if (typeof collection === 'object' && collection !== null && typeof func === 'function') {
+        for (let key in collection) {
+            let elementResult = func(collection[key], key, collection);
+            if (elementResult === true) {
+                result = true;
+            }
+        }
+    } else if (func === undefined) {
+   
+        for (let i = 0; i < collection.length; i++) {
+            if (collection[i]) {
+                result = true;
+            }
+        }
+    }
+
+    return result;
+};
 /** _.some
 * Arguments:
 *   1) A collection
