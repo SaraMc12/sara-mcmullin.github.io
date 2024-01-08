@@ -63,28 +63,28 @@ const _ = require('lodown-oliviasaborush');
  - **Objective**: Find how many customer's names begin with a given letter
  - **Input**: `Array`, `Letter`
  - **Output**: `Number`
- - **Constraints**:
+ - **Constraints**: "NOTE TO SELF: maybe use filter for this one"
 
 ### 7: `friendFirstLetterCount`
  - **Objective**: Find how many friends of a given customer have names that start with a given letter
  - **Input**: `Array`, `Customer`, `Letter`
  - **Output**: `Number`
- - **Constraints**:
+ - **Constraints**: NOTE TO SELF: FILTER OR MAP
 
 ### 8: `friendsCount`
  - **Objective**: Find the customers' names that have a given customer's name in their friends list
  - **Input**: `Array`, `Name`
  - **Output**: `Array`
- - **Constraints**:
+ - **Constraints**: NOTE TO SELF: FILTER OR MAP
 
 ### 9: `topThreeTags`
  - **Objective**: Find the three most common tags among all customers' associated tags
  - **Input**: `Array`
  - **Output**: `Array`
- - **Constraints**:
+ - **Constraints**: NOTE TO SELF EITHER FILTER OR MAP
 
 ### 10: `genderCount`
- - **Objective**: Create a summary of genders, the output should be:
+ - **Objective**: Create a summary of genders, the output should be
 ```javascript
 {
     male: 3,

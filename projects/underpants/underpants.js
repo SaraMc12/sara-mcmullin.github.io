@@ -503,7 +503,22 @@ _.some = function(collection, func) {
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
-
+_.reduce = function(array, func, seed){
+let output;
+if(seed === undefined){
+ output = array[0]
+ for(let i = 1; i < array.length; i++){
+    // reassign output to the invocation of out callback function
+    output = func(output, array[i], i)
+ }
+}else{
+    output = seed
+    for(let i = 0; i < array.length; i++){
+        output = func(output, array[i], i)
+    }
+}
+return output
+}
 /** _.reduce
 * Arguments:
 *   1) An array
@@ -524,8 +539,9 @@ _.some = function(collection, func) {
 */
 
 
-_.extend = function(targer, ...object){
-// some stuff
+_.extend = function(target, ...object){
+    let targetObj = Object.assign(target, ...object); 
+    return targetObj
 }
 
 /** _.extend
