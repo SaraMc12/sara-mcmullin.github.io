@@ -27,42 +27,43 @@ return males.length
 };
 
 var femaleCount = function(array) {
-    return customers_.reduce((femaleCustomers, customer) => {
-      if (customer.gender === 'female') {
-        femaleCount.push(customer);
-      }
-      return femaleCustomers;
-    }, []);
-  }
-  
-  
-var oldestCustomer = function(customers) {
-    let oldest = customers_.reduce((prev, curr) => {
-        return (prev.age > curr.age) ? prev : curr;
-      });
-    
-      return oldest.name;
+  return array.reduce((femaleCount, customer) => {
+    if (customer.gender === 'female') {
+      femaleCount.push(customer);
     }
+    return femaleCount;
+  }, []).length
+};
+
+
+var oldestCustomer = function(array) {
+  let oldest = array.reduce((prev, curr) => {
+    return (prev.age > curr.age) ? prev : curr;
+  });
+
+  return oldest.name;
+};
   
 
-var youngestCustomer = function(customers){
-    let youngest = customers_.reduce((prev, curr) => {
+var youngestCustomer = function(array){
+    let youngest = array.reduce((prev, curr) => {
         return (prev.age < curr.age) ? prev : curr;
       });
   
       return youngest.name;
     }
 
-    var averageBalance = function(customers) {
-        const balances = customers.map(customer => {
-          return parseFloat(customer.balance.replace('$', '').replace(',', ''));
-        });
-        const sum = balances.reduce((acc, curr) => acc + curr, 0)
-        const roundedSum = Math.floor(sum)
-      
-        return roundedSum
-      }
-
+    var averageBalance = function(array) {
+      const balanceValues = array.map(customer => parseFloat(customer.balance.replace('$', '').replace(',', '')));
+    
+      const totalBalance = balanceValues.reduce((acc, balanceValue) => acc + balanceValue, 0);
+    
+      const average = totalBalance / array.length;
+      const roundedAverage = Math.floor(average * 100) / 100; // Round to two decimal places
+      return roundedAverage;
+    };
+    
+    
 var firstLetterCount;
 
 var friendFirstLetterCount;
