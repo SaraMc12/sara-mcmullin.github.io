@@ -53,26 +53,81 @@ var youngestCustomer = function(array){
       return youngest.name;
     }
 
-    var averageBalance = function(array) {
-      const balanceValues = array.map(customer => parseFloat(customer.balance.replace('$', '').replace(',', '')));
-    
-      const totalBalance = balanceValues.reduce((acc, balanceValue) => acc + balanceValue, 0);
-    
-      const average = totalBalance / array.length;
-      const roundedAverage = Math.floor(average * 100) / 100; // Round to two decimal places
-      return roundedAverage;
+    var averageBalance = function(array){
+      const totalBalance = array.reduce((acc, customer) => {
+        return acc + parseFloat(customer.balance.replace('$', '').replace(',', ''));
+      
+    }, 0);
+      return totalBalance / array.length;
     };
     
+    console.log(averageBalance(customers));
     
-var firstLetterCount;
 
-var friendFirstLetterCount;
+var firstLetterCount = function(array, letter){
+  const result = array.filter(customer => customer.name.charAt(0).toUpperCase() === letter.toUpperCase());
+  return result.length;
+  }
 
-var friendsCount;
+  const friendFirstLetterCount = function(array, customer, letter) {
+    let count = 0;
+    // checking to see if customers.friends is an array 
+    if (customer && customer.friends && Array.isArray(customer.friends)) {
+      customer.friends.forEach(function(friend) {
+        if (friend.name && typeof friend.name === 'string' && friend.name.toUpperCase().charAt(0) === letter.toUpperCase()) {
+          count++;
+        }
+      });
+    }
+    return count;
+  };
 
+const friendsCount = function(array, name) {
+  return array.filter(customer => {
+    for (let i = 0; i < customer.friends.length; i++) {
+      if (customer.friends[i].name === name) {
+           return true; // Return true if the friend is found
+         }
+       }
+        return false; // Return false if the friend is not found in the loop
+     })
+    .map(customer => customer.name);
+  };
+  
 var topThreeTags;
+// = customers.reduce(function(arr1, arr2){
+//   if(customer.tags.length === customer.tags.length){
+//     arr2.push(arr1)
+//   }
+// },[])
 
-var genderCount;
+var genderCount = function(array) {
+  return array.reduce((genderCount, customer) => {
+    if (customer.gender === 'female') {
+      if (genderCount['female'] === undefined) {
+        // this felt weird to me but it's common practice to initialize the count as 1 according to my research.
+        // also when I originally set it to zero evertthing kept failing.
+        
+        genderCount['female'] = 1;
+      } else {
+         genderCount['female']++;
+      }
+    } else if (customer.gender === 'male') {
+      if (genderCount['male'] === undefined) {
+         genderCount['male'] = 1;
+      } else {
+        genderCount['male']++;
+      }
+    } else if (customer.gender === 'non-binary') {
+      if (genderCount['non-binary'] === undefined) {
+        genderCount['non-binary'] = 1;
+      } else {
+         genderCount['non-binary']++;
+      }
+    }
+    return genderCount;
+  }, {});
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
